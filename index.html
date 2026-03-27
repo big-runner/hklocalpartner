@@ -8,7 +8,7 @@
 		<style>
 			/* --- 基礎 CSS --- */
 			body {
-				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.8), rgba(15, 20, 25, 0.3)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
+				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.85), rgba(15, 20, 25, 0.4)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
@@ -16,31 +16,65 @@
 				text-align: left;
 			}
 			
-			/* --- 質感資訊框排版 (LTR) --- */
+			/* --- 頂部引言排版 --- */
+			.hero-intro {
+				max-width: 800px;
+				margin: 0 auto 3em auto;
+				color: rgba(255, 255, 255, 0.85);
+				font-size: 1.05em;
+				line-height: 1.8;
+				text-align: center;
+			}
+
+			/* --- 雙欄網格佈局 (電腦版雙欄，手機版單欄) --- */
+			.features-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 2em;
+				margin-bottom: 3em;
+				max-width: 1200px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			@media screen and (min-width: 860px) {
+				.features-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			/* --- 質感資訊框排版 --- */
 			.feature-box {
 				background: rgba(0, 0, 0, 0.65);
 				border: 1px solid rgba(255, 255, 255, 0.08);
 				padding: 2.5em;
 				border-radius: 8px;
-				margin-bottom: 2em;
 				text-align: left;
+				display: flex;
+				flex-direction: column;
+				backdrop-filter: blur(4px); /* 增加高級毛玻璃效果 */
 			}
 			.feature-title {
 				color: #ffffff;
-				font-size: 1.05em;
+				font-size: 1.1em;
 				font-weight: 600;
-				margin-bottom: 0.6em;
+				margin-bottom: 1.2em;
 				letter-spacing: 0.5px;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+				padding-bottom: 0.8em;
 			}
 			.feature-text {
 				color: rgba(255, 255, 255, 0.75);
 				font-size: 0.9em;
-				line-height: 1.8;
-				margin-bottom: 2em;
+				line-height: 1.7;
+				margin-bottom: 1.2em;
+			}
+			.feature-text strong {
+				color: #ffffff;
+				font-weight: 600;
 			}
 			.feature-text:last-child { margin-bottom: 0; }
 
-			/* --- 語言切換器 (LTR) --- */
+			/* --- 語言切換器 --- */
 			.lang-switcher {
 				position: fixed;
 				top: 1.5em;
@@ -57,27 +91,22 @@
 				color: rgba(255, 255, 255, 0.6);
 				transition: color 0.2s ease;
 			}
-			.lang-switcher a:hover {
-				color: #ffffff;
-			}
+			.lang-switcher a:hover { color: #ffffff; }
 			.lang-switcher a.active {
 				color: #ffffff;
 				font-weight: bold;
 				border-bottom: 1px solid #ffffff;
 			}
 
-			/* --- 加密通訊按鈕與版權 (LTR) --- */
+			/* --- 加密通訊按鈕 --- */
 			.crypto-contact-box {
 				display: flex;
 				flex-direction: column;
 				gap: 12px;
 				width: 100%;
 				max-width: 450px;
-				margin-top: 3em; /* 稍微增加間距以容納新文字 */
-				margin-left: auto;
-				margin-right: auto;
+				margin: 4em auto 0 auto;
 			}
-			/* 新增的聯絡引言樣式 (LTR) */
 			.contact-lead {
 				color: #ffffff;
 				font-size: 1.1em;
@@ -120,17 +149,51 @@
 
 		<header id="header">
 				<h1 style="letter-spacing: 2px;">Hong Kong Local Liaison</h1>
-				<p style="margin-bottom: 2.5em; letter-spacing: 2px; font-weight: bold; font-size: 1.2em; color: #fff;">We silence.</p>
+				<p style="margin-bottom: 1em; letter-spacing: 2px; font-weight: bold; font-size: 1.2em; color: #fff;">We silence.</p>
 				
-				<div class="feature-box">
-					<div class="feature-title">1. The Invisible Local Proxy</div>
-					<div class="feature-text">Zero political ties. Zero hidden business agendas. As your fiercely loyal local fixers, we handle the complexities of Hong Kong's business landscape in the shadows. From turnkey setup to discrete negotiations, we manage the local friction so your operations remain invisible and uninterrupted.</div>
+				<div class="hero-intro">
+					When Middle Eastern capital enters Asia, it often relies on top-tier law firms and corporate agents. But a critical vulnerability remains: <strong>Who is overseeing the overseers?</strong><br>
+					We do not replace your legal counsel; we act as your independent eyes, ears, and hands on the ground. We are your stealth Shadow Chief of Staff in Hong Kong.
+				</div>
+				
+				<div class="features-grid">
+					
+					<div class="feature-box">
+						<div class="feature-title">1. Executive Oversight & Control</div>
+						<div class="feature-text"><strong>The Reality:</strong> Big-name agencies optimize for billable hours, acting slowly and prioritizing surface-level compliance over your absolute interests.</div>
+						<div class="feature-text"><strong>The Shadow Execution:</strong> We audit your local agents, eliminate bureaucratic friction, and ruthlessly push your agenda forward. We act as your ultimate "check and balance" to regain absolute control over your local deployments.</div>
+					</div>
 
-					<div class="feature-title">2. Applied AI & Hardcore Verification</div>
-					<div class="feature-text">Driven by a Master's in Physics and the rapid mastery of the latest AI tools, we leverage artificial intelligence to execute your most complex operational goals with extreme efficiency. Beyond operations, we use this deep technical fluency to brutally evaluate new AI and tech investment projects—stripping away the hype to determine if the underlying technology is actually rational and viable.</div>
+					<div class="feature-box">
+						<div class="feature-title">2. Deep-Tech Intelligence & Anti-BS</div>
+						<div class="feature-text"><strong>The Reality:</strong> Asia’s startup scene is saturated with hyped "Deep-Tech" and "AI" pitches built on flimsy foundations, designed to capture foreign capital.</div>
+						<div class="feature-text"><strong>The Shadow Execution:</strong> Led by Physics postgraduates and AI specialists, we apply first-principles thinking to brutally tear down and verify the scientific and commercial reality of target investments <em>before</em> you deploy capital.</div>
+					</div>
 
-					<div class="feature-title">3. Battle-Tested Commercial Resilience</div>
-					<div class="feature-text">We have successfully operated a local commercial enterprise in Hong Kong for 20 years, standing firm through global financial crises and the pandemic. While we hold comprehensive statutory insurance licenses (General, Long-Term, and Comprehensive), we are not retail brokers. We utilize these licenses strictly as strategic regulatory tools to structure ironclad compliance, asset protection, and risk management moats for your family's legacy.</div>
+					<div class="feature-box">
+						<div class="feature-title">3. Frictionless Local Operations</div>
+						<div class="feature-text"><strong>The Reality:</strong> Establishing a footprint involves navigating sensitive local friction—from securing unlisted premium real estate to orchestrating executive logistics—tasks traditional bankers won't touch.</div>
+						<div class="feature-text"><strong>The Shadow Execution:</strong> Leveraging 20 years of boots-on-the-ground commercial experience, we act as your local fixer. We pave the way in the shadows so your team can operate instantly and seamlessly in the light.</div>
+					</div>
+
+					<div class="feature-box">
+						<div class="feature-title">4. Ironclad Compliance Moat</div>
+						<div class="feature-text"><strong>The Reality:</strong> Cross-border capital is increasingly exposed to abrupt local regulatory shifts, data sovereignty laws, and physical asset vulnerabilities.</div>
+						<div class="feature-text"><strong>The Shadow Execution:</strong> Armed with comprehensive statutory insurance licenses (General, Long-Term, Comprehensive), we engineer strategic, ironclad compliance and risk management moats that standard retail brokers cannot structure.</div>
+					</div>
+
+					<div class="feature-box">
+						<div class="feature-title">5. Ethical & Sharia Alignment</div>
+						<div class="feature-text"><strong>The Reality:</strong> Asian tech and business models frequently harbor hidden structures (e.g., implicit Riba or speculative Gharar) that violate Islamic financial principles, often discovered too late.</div>
+						<div class="feature-text"><strong>The Shadow Execution:</strong> We provide an initial layer of ethical and cultural filtering. We use AI and deep local insight to ensure your target acquisitions and operations strictly align with your family's mandates.</div>
+					</div>
+
+					<div class="feature-box">
+						<div class="feature-title">6. Absolute Discretion</div>
+						<div class="feature-text"><strong>The Reality:</strong> The moment a prominent Middle Eastern Family Office name surfaces in the local market, prices double ("Middle East Premium") and unwanted solicitations multiply.</div>
+						<div class="feature-text"><strong>The Shadow Execution:</strong> Zero political ties. Zero local conflicts of interest. We negotiate, audit, and execute as your uncompromised proxy, ensuring your operations leave zero footprint.</div>
+					</div>
+
 				</div>
 			</header>
 
