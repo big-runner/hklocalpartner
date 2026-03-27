@@ -1,226 +1,234 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<title>Hong Kong Local Liaison | Private Operations</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
-			/* --- 基礎 CSS --- */
-			body {
-				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.85), rgba(15, 20, 25, 0.4)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
-				background-size: cover;
-				background-position: center;
-				background-attachment: fixed;
-				direction: ltr; 
-				text-align: left;
-			}
-			
-			/* --- 頂部引言排版 --- */
-			.hero-intro {
-				max-width: 800px;
-				margin: 0 auto 3em auto;
-				color: rgba(255, 255, 255, 0.85);
-				font-size: 1.05em;
-				line-height: 1.8;
-				text-align: center;
-			}
+    <head>
+        <title>Hong Kong Local Liaison | Private Operations</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            /* --- 基礎 CSS --- */
+            body {
+                background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                direction: ltr; 
+                text-align: left;
+            }
+            
+            /* --- 修正電腦版排版：強制置中與寬度限制 (解決排版醜陋的關鍵) --- */
+            #header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 1200px;
+                padding: 2em 1em;
+            }
 
-			/* --- 雙欄網格佈局 (電腦版雙欄，手機版單欄) --- */
-			.features-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 2em;
-				margin-bottom: 3em;
-				max-width: 1200px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			@media screen and (min-width: 860px) {
-				.features-grid {
-					grid-template-columns: 1fr 1fr;
-				}
-			}
+            /* --- 頂部引言排版 --- */
+            .hero-intro {
+                max-width: 800px;
+                margin: 0 auto 3em auto;
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 1.05em;
+                line-height: 1.8;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.5); /* 增加底色讓文字更易讀 */
+                padding: 1.5em;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
-			/* --- 質感資訊框排版 --- */
-			.feature-box {
-				background: rgba(0, 0, 0, 0.65);
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				padding: 2.5em;
-				border-radius: 8px;
-				text-align: left;
-				display: flex;
-				flex-direction: column;
-				backdrop-filter: blur(4px); /* 增加高級毛玻璃效果 */
-			}
-			.feature-title {
-				color: #ffffff;
-				font-size: 1.1em;
-				font-weight: 600;
-				margin-bottom: 1.2em;
-				letter-spacing: 0.5px;
-				border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-				padding-bottom: 0.8em;
-			}
-			.feature-text {
-				color: rgba(255, 255, 255, 0.75);
-				font-size: 0.9em;
-				line-height: 1.7;
-				margin-bottom: 1.2em;
-			}
-			.feature-text strong {
-				color: #ffffff;
-				font-weight: 600;
-			}
-			.feature-text:last-child { margin-bottom: 0; }
+            /* --- 雙欄網格佈局 (電腦版雙欄，手機版單欄) --- */
+            .features-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                margin-bottom: 3em;
+                width: 100%;
+            }
+            @media screen and (min-width: 860px) {
+                .features-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
 
-			/* --- 語言切換器 --- */
-			.lang-switcher {
-				position: fixed;
-				top: 1.5em;
-				right: 2em;
-				z-index: 1000;
-				font-size: 0.8em;
-				letter-spacing: 1px;
-				display: flex;
-				gap: 1.2em;
-				align-items: center;
-			}
-			.lang-switcher a {
-				text-decoration: none;
-				color: rgba(255, 255, 255, 0.6);
-				transition: color 0.2s ease;
-			}
-			.lang-switcher a:hover { color: #ffffff; }
-			.lang-switcher a.active {
-				color: #ffffff;
-				font-weight: bold;
-				border-bottom: 1px solid #ffffff;
-			}
+            /* --- 質感資訊框排版 --- */
+            .feature-box {
+                background: rgba(0, 0, 0, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 2.5em;
+                border-radius: 8px;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            .feature-title {
+                color: #ffffff;
+                font-size: 1.1em;
+                font-weight: 600;
+                margin-bottom: 1.2em;
+                letter-spacing: 0.5px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                padding-bottom: 0.8em;
+            }
+            .feature-text {
+                color: rgba(255, 255, 255, 0.75);
+                font-size: 0.9em;
+                line-height: 1.7;
+                margin-bottom: 1.2em;
+            }
+            .feature-text strong {
+                color: #ffffff;
+                font-weight: 600;
+            }
+            .feature-text:last-child { margin-bottom: 0; }
 
-			/* --- 加密通訊按鈕 --- */
-			.crypto-contact-box {
-				display: flex;
-				flex-direction: column;
-				gap: 12px;
-				width: 100%;
-				max-width: 450px;
-				margin: 4em auto 0 auto;
-			}
-			.contact-lead {
-				color: #ffffff;
-				font-size: 1.1em;
-				font-weight: 600;
-				margin-bottom: 1em;
-				letter-spacing: 1px;
-				text-align: center;
-			}
-			.crypto-btn {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding: 14px 20px;
-				background-color: rgba(255, 255, 255, 0.03);
-				border: 1px solid rgba(255, 255, 255, 0.15);
-				border-radius: 6px;
-				color: #ffffff;
-				text-decoration: none;
-				font-size: 0.9em;
-				letter-spacing: 1px;
-				transition: all 0.2s ease-in-out;
-			}
-			.crypto-btn:hover {
-				background-color: rgba(255, 255, 255, 0.1);
-				border-color: rgba(255, 255, 255, 0.5);
-			}
-			.crypto-btn i {
-				margin-right: 12px;
-				font-size: 1.2em;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+            /* --- 語言切換器 --- */
+            .lang-switcher {
+                position: fixed;
+                top: 1.5em;
+                right: 2em;
+                z-index: 1000;
+                font-size: 0.8em;
+                letter-spacing: 1px;
+                display: flex;
+                gap: 1.2em;
+                align-items: center;
+            }
+            .lang-switcher a {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.6);
+                transition: color 0.2s ease;
+            }
+            .lang-switcher a:hover { color: #ffffff; }
+            .lang-switcher a.active {
+                color: #ffffff;
+                font-weight: bold;
+                border-bottom: 1px solid #ffffff;
+            }
 
-		<nav class="lang-switcher">
-				<a href="index.html" class="active">English</a> /
-				<a href="index-ar.html">العربية</a> /
-				<a href="index-ur.html">اردو</a>
-			</nav>
+            /* --- 加密通訊按鈕 --- */
+            .crypto-contact-box {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .contact-lead {
+                color: #ffffff;
+                font-size: 1.1em;
+                font-weight: 600;
+                margin-bottom: 1em;
+                letter-spacing: 1px;
+                text-align: center;
+            }
+            .crypto-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 14px 20px;
+                background-color: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 6px;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                transition: all 0.2s ease-in-out;
+            }
+            .crypto-btn:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+            .crypto-btn i {
+                margin-right: 12px;
+                font-size: 1.2em;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
 
-		<header id="header">
-				<h1 style="letter-spacing: 2px;">Hong Kong Local Liaison</h1>
-				<p style="margin-bottom: 1em; letter-spacing: 2px; font-weight: bold; font-size: 1.2em; color: #fff;">We silence.</p>
-				
-				<div class="hero-intro">
-					When Middle Eastern capital enters Asia, it often relies on top-tier law firms and corporate agents. But a critical vulnerability remains: <strong>Who is overseeing the overseers?</strong><br>
-					We do not replace your legal counsel; we act as your independent eyes, ears, and hands on the ground. We are your stealth Shadow Chief of Staff in Hong Kong.
-				</div>
-				
-				<div class="features-grid">
-					
-					<div class="feature-box">
-						<div class="feature-title">1. Executive Oversight & Control</div>
-						<div class="feature-text"><strong>The Reality:</strong> Big-name agencies optimize for billable hours, acting slowly and prioritizing surface-level compliance over your absolute interests.</div>
-						<div class="feature-text"><strong>The Shadow Execution:</strong> We audit your local agents, eliminate bureaucratic friction, and ruthlessly push your agenda forward. We act as your ultimate "check and balance" to regain absolute control over your local deployments.</div>
-					</div>
+        <nav class="lang-switcher">
+            <a href="index.html" class="active">English</a> /
+            <a href="index-ar.html">العربية</a> /
+            <a href="index-ur.html">اردو</a>
+        </nav>
 
-					<div class="feature-box">
-						<div class="feature-title">2. Deep-Tech Intelligence & Anti-BS</div>
-						<div class="feature-text"><strong>The Reality:</strong> Asia’s startup scene is saturated with hyped "Deep-Tech" and "AI" pitches built on flimsy foundations, designed to capture foreign capital.</div>
-						<div class="feature-text"><strong>The Shadow Execution:</strong> Led by Physics postgraduates and AI specialists, we apply first-principles thinking to brutally tear down and verify the scientific and commercial reality of target investments <em>before</em> you deploy capital.</div>
-					</div>
+        <header id="header">
+            <h1 style="letter-spacing: 2px;">Hong Kong Local Liaison</h1>
+            <p style="margin-bottom: 1em; letter-spacing: 2px; font-weight: bold; font-size: 1.2em; color: #fff;">We silence.</p>
+            
+            <div class="hero-intro">
+                When Middle Eastern capital enters Asia, it often relies on top-tier law firms and corporate agents. But a critical vulnerability remains: <strong>Who is overseeing the overseers?</strong><br>
+                We do not replace your legal counsel; we act as your independent eyes, ears, and hands on the ground. We are your stealth Shadow Chief of Staff in Hong Kong.
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-title">1. Executive Oversight & Control</div>
+                    <div class="feature-text"><strong>The Reality:</strong> Big-name agencies optimize for billable hours, acting slowly and prioritizing surface-level compliance over your absolute interests.</div>
+                    <div class="feature-text"><strong>The Shadow Execution:</strong> We audit your local agents, eliminate bureaucratic friction, and ruthlessly push your agenda forward. We act as your ultimate "check and balance" to regain absolute control over your local deployments.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">2. Deep-Tech Intelligence & Anti-BS</div>
+                    <div class="feature-text"><strong>The Reality:</strong> Asia’s startup scene is saturated with hyped "Deep-Tech" and "AI" pitches built on flimsy foundations, designed to capture foreign capital.</div>
+                    <div class="feature-text"><strong>The Shadow Execution:</strong> Led by Physics postgraduates and AI specialists, we apply first-principles thinking to brutally tear down and verify the scientific and commercial reality of target investments <em>before</em> you deploy capital.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">3. Frictionless Local Operations</div>
+                    <div class="feature-text"><strong>The Reality:</strong> Establishing a footprint involves navigating sensitive local friction—from securing unlisted premium real estate to orchestrating executive logistics—tasks traditional bankers won't touch.</div>
+                    <div class="feature-text"><strong>The Shadow Execution:</strong> Leveraging 20 years of boots-on-the-ground commercial experience, we act as your local fixer. We pave the way in the shadows so your team can operate instantly and seamlessly in the light.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">4. Ironclad Compliance Moat</div>
+                    <div class="feature-text"><strong>The Reality:</strong> Cross-border capital is increasingly exposed to abrupt local regulatory shifts, data sovereignty laws, and physical asset vulnerabilities.</div>
+                    <div class="feature-text"><strong>The Shadow Execution:</strong> Armed with comprehensive statutory insurance licenses (General, Long-Term, Comprehensive), we engineer strategic, ironclad compliance and risk management moats that standard retail brokers cannot structure.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">5. Ethical & Sharia Alignment</div>
+                    <div class="feature-text"><strong>The Reality:</strong> Asian tech and business models frequently harbor hidden structures (e.g., implicit Riba or speculative Gharar) that violate Islamic financial principles, often discovered too late.</div>
+                    <div class="feature-text"><strong>The Shadow Execution:</strong> We provide an initial layer of ethical and cultural filtering. We use AI and deep local insight to ensure your target acquisitions and operations strictly align with your family's mandates.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">6. Absolute Discretion</div>
+                    <div class="feature-text"><strong>The Reality:</strong> The moment a prominent Middle Eastern Family Office name surfaces in the local market, prices double ("Middle East Premium") and unwanted solicitations multiply.</div>
+                    <div class="feature-text"><strong>The Shadow Execution:</strong> Zero political ties. Zero local conflicts of interest. We negotiate, audit, and execute as your uncompromised proxy, ensuring your operations leave zero footprint.</div>
+                </div>
+            </div>
+            
+            <div class="crypto-contact-box">
+                <p class="contact-lead">Connect to Hong Kong</p>
+                <a href="https://wa.me/85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon brands fa-whatsapp"></i> WhatsApp: +852 63428370
+                </a>
+                <a href="https://t.me/Coconut_Production_HK" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon brands fa-telegram-plane"></i> Telegram: @Coconut_Production_HK
+                </a>
+                <a href="https://signal.me/#p/+85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon solid fa-comment-dots"></i> Signal: +852 63428370
+                </a>
+                <a href="mailto:dee@coconutprods.com" class="crypto-btn">
+                    <i class="icon regular fa-envelope"></i> dee@coconutprods.com
+                </a>
+            </div>
+        </header>
 
-					<div class="feature-box">
-						<div class="feature-title">3. Frictionless Local Operations</div>
-						<div class="feature-text"><strong>The Reality:</strong> Establishing a footprint involves navigating sensitive local friction—from securing unlisted premium real estate to orchestrating executive logistics—tasks traditional bankers won't touch.</div>
-						<div class="feature-text"><strong>The Shadow Execution:</strong> Leveraging 20 years of boots-on-the-ground commercial experience, we act as your local fixer. We pave the way in the shadows so your team can operate instantly and seamlessly in the light.</div>
-					</div>
+        <footer id="footer">
+            <ul class="copyright" style="margin-top: 4em;">
+                <li>&copy; Coconut Production Limited. All rights reserved.</li><li>Strictly Confidential</li>
+            </ul>
+        </footer>
 
-					<div class="feature-box">
-						<div class="feature-title">4. Ironclad Compliance Moat</div>
-						<div class="feature-text"><strong>The Reality:</strong> Cross-border capital is increasingly exposed to abrupt local regulatory shifts, data sovereignty laws, and physical asset vulnerabilities.</div>
-						<div class="feature-text"><strong>The Shadow Execution:</strong> Armed with comprehensive statutory insurance licenses (General, Long-Term, Comprehensive), we engineer strategic, ironclad compliance and risk management moats that standard retail brokers cannot structure.</div>
-					</div>
+        <script src="assets/js/main.js"></script>
 
-					<div class="feature-box">
-						<div class="feature-title">5. Ethical & Sharia Alignment</div>
-						<div class="feature-text"><strong>The Reality:</strong> Asian tech and business models frequently harbor hidden structures (e.g., implicit Riba or speculative Gharar) that violate Islamic financial principles, often discovered too late.</div>
-						<div class="feature-text"><strong>The Shadow Execution:</strong> We provide an initial layer of ethical and cultural filtering. We use AI and deep local insight to ensure your target acquisitions and operations strictly align with your family's mandates.</div>
-					</div>
-
-					<div class="feature-box">
-						<div class="feature-title">6. Absolute Discretion</div>
-						<div class="feature-text"><strong>The Reality:</strong> The moment a prominent Middle Eastern Family Office name surfaces in the local market, prices double ("Middle East Premium") and unwanted solicitations multiply.</div>
-						<div class="feature-text"><strong>The Shadow Execution:</strong> Zero political ties. Zero local conflicts of interest. We negotiate, audit, and execute as your uncompromised proxy, ensuring your operations leave zero footprint.</div>
-					</div>
-
-				</div>
-			</header>
-
-		<div class="crypto-contact-box">
-				<p class="contact-lead">Connect to Hong Kong</p>
-
-				<a href="https://wa.me/85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon brands fa-whatsapp"></i> WhatsApp: +852 63428370
-				</a>
-				<a href="https://t.me/Coconut_Production_HK" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon brands fa-telegram-plane"></i> Telegram: @Coconut_Production_HK
-				</a>
-				<a href="https://signal.me/#p/+85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon solid fa-comment-dots"></i> Signal: +852 63428370
-				</a>
-				<a href="mailto:dee@coconutprods.com" class="crypto-btn">
-					<i class="icon regular fa-envelope"></i> dee@coconutprods.com
-				</a>
-			</div>
-
-		<footer id="footer">
-				<ul class="copyright" style="margin-top: 4em;">
-					<li>&copy; Coconut Production Limited. All rights reserved.</li><li>Strictly Confidential</li>
-				</ul>
-			</footer>
-
-		<script src="assets/js/main.js"></script>
-
-	</body>
+    </body>
 </html>
