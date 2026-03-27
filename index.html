@@ -1,20 +1,72 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head>
 		<title>Hong Kong Local Liaison | Private Operations</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			/* 覆蓋預設背景：高端商務建築與抽象幾何 (加深濾鏡凸顯文字) */
+			/* --- 基礎 CSS --- */
 			body {
 				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.98), rgba(15, 20, 25, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
+				direction: ltr; /* English LTR */
+				text-align: left;
 			}
 			
-			/* 客製化高階加密通訊按鈕樣式 */
+			/* --- 質感資訊框排版 (LTR) --- */
+			.feature-box {
+				background: rgba(0, 0, 0, 0.65);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				padding: 2.5em;
+				border-radius: 8px;
+				margin-bottom: 2em;
+				text-align: left;
+			}
+			.feature-title {
+				color: #ffffff;
+				font-size: 1.05em;
+				font-weight: 600;
+				margin-bottom: 0.6em;
+				letter-spacing: 0.5px;
+			}
+			.feature-text {
+				color: rgba(255, 255, 255, 0.75);
+				font-size: 0.9em;
+				line-height: 1.8;
+				margin-bottom: 2em;
+			}
+			.feature-text:last-child { margin-bottom: 0; }
+
+			/* --- 語言切換器 (RTL) --- */
+			.lang-switcher {
+				position: fixed;
+				top: 1.5em;
+				right: 2em;
+				z-index: 1000;
+				font-size: 0.8em;
+				letter-spacing: 1px;
+				display: flex;
+				gap: 1.2em;
+				align-items: center;
+			}
+			.lang-switcher a {
+				text-decoration: none;
+				color: rgba(255, 255, 255, 0.6);
+				transition: color 0.2s ease;
+			}
+			.lang-switcher a:hover {
+				color: #ffffff;
+			}
+			.lang-switcher a.active {
+				color: #ffffff;
+				font-weight: bold;
+				border-bottom: 1px solid #ffffff;
+			}
+
+			/* --- 加密通訊按鈕與版權 (LTR) --- */
 			.crypto-contact-box {
 				display: flex;
 				flex-direction: column;
@@ -47,35 +99,15 @@
 				margin-right: 12px;
 				font-size: 1.2em;
 			}
-
-			/* 賣點資訊框排版 */
-			.feature-box {
-				background: rgba(0, 0, 0, 0.65);
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				padding: 2.5em;
-				border-radius: 8px;
-				margin-bottom: 2em;
-				text-align: left;
-			}
-			.feature-title {
-				color: #ffffff;
-				font-size: 1.05em;
-				font-weight: 600;
-				margin-bottom: 0.6em;
-				letter-spacing: 0.5px;
-			}
-			.feature-text {
-				color: rgba(255, 255, 255, 0.75);
-				font-size: 0.9em;
-				line-height: 1.8;
-				margin-bottom: 2em;
-			}
-			.feature-text:last-child {
-				margin-bottom: 0;
-			}
 		</style>
 	</head>
 	<body class="is-preload">
+
+		<nav class="lang-switcher">
+				<a href="index.html" class="active">English</a> /
+				<a href="index-ar.html">العربية</a> /
+				<a href="index-ur.html">اردو</a>
+			</nav>
 
 		<header id="header">
 				<h1 style="letter-spacing: 2px;">Hong Kong Local Liaison</h1>
