@@ -5,9 +5,15 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+        
         <style>
             /* --- 基礎 CSS --- */
             body {
+                font-family: 'Inter', sans-serif; /* 全域預設使用極度冷靜清晰的 Inter 內文字體 */
                 background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
                 background-size: cover;
                 background-position: center;
@@ -15,11 +21,16 @@
                 direction: ltr; 
                 text-align: left;
                 
-                /* 修復頂部超出邊界的核心代碼：解除原模板的垂直置中，強制從頂部開始排版，並預留頂部空間 */
+                /* 修復頂部超出邊界的核心代碼 */
                 justify-content: flex-start !important;
                 padding-top: 6em !important; 
             }
             
+            /* --- 針對標題強制使用具備權威感的 Montserrat 字體 --- */
+            h1, .subtitle, .feature-title, .contact-lead {
+                font-family: 'Montserrat', sans-serif;
+            }
+
             /* --- 修正電腦版排版：強制置中與寬度限制 --- */
             #header {
                 display: flex;
@@ -105,7 +116,7 @@
                 display: flex;
                 gap: 1.2em;
                 align-items: center;
-                background: rgba(0,0,0,0.5); /* 增加一點底色避免被背景圖干擾 */
+                background: rgba(0,0,0,0.5);
                 padding: 8px 15px;
                 border-radius: 20px;
                 backdrop-filter: blur(4px);
@@ -173,7 +184,7 @@
 
         <header id="header">
             <h1 style="letter-spacing: 2px;">Hong Kong Local Liaison</h1>
-            <p style="margin-bottom: 1em; letter-spacing: 2px; font-weight: bold; font-size: 1.2em; color: #fff;">We silence.</p>
+            <p class="subtitle" style="margin-bottom: 1em; letter-spacing: 2px; font-weight: bold; font-size: 1.2em; color: #fff;">We silence.</p>
             
             <div class="hero-intro">
                 When Middle Eastern capital enters Asia, it often relies on top-tier law firms and corporate agents. But a critical vulnerability remains: <strong>Who is overseeing the overseers?</strong><br>
