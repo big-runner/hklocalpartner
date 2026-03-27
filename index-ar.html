@@ -8,7 +8,8 @@
 		<style>
 			/* --- 基礎 CSS (RTL) --- */
 			body {
-				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.98), rgba(15, 20, 25, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+				/* 背景圖替換為維港夜景，搭配深色濾鏡確保文字清晰 */
+				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.98), rgba(15, 20, 25, 0.85)), url('https://images.unsplash.com/photo-1533106497176-45ae19b68ba2?q=80&w=2070&auto=format&fit=crop');
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
@@ -20,7 +21,7 @@
 			.feature-box {
 				background: rgba(0, 0, 0, 0.65);
 				border: 1px solid rgba(255, 255, 255, 0.08);
-				padding: 2.5em; /* Default padding is fine for RTL, alignment is fixed by direction */
+				padding: 2.5em;
 				border-radius: 8px;
 				margin-bottom: 2em;
 				text-align: right;
@@ -30,7 +31,7 @@
 				font-size: 1.05em;
 				font-weight: 600;
 				margin-bottom: 0.6em;
-				letter-spacing: 0px; /* Reset letter-spacing for non-Latin scripts */
+				letter-spacing: 0px;
 			}
 			.feature-text {
 				color: rgba(255, 255, 255, 0.75);
@@ -74,9 +75,18 @@
 				gap: 12px;
 				width: 100%;
 				max-width: 450px;
-				margin-top: 2em;
-				margin-left: auto; /* Central alignment flow for RTL */
+				margin-top: 3em; /* 稍微增加間距以容納新文字 */
+				margin-left: auto;
 				margin-right: auto;
+			}
+			/* 新增的聯絡引言樣式 (RTL) */
+			.contact-lead {
+				color: #ffffff;
+				font-size: 1.1em;
+				font-weight: 600;
+				margin-bottom: 1em;
+				letter-spacing: 0px; /* Reset for non-Latin scripts */
+				text-align: center;
 			}
 			.crypto-btn {
 				display: flex;
@@ -97,7 +107,7 @@
 				border-color: rgba(255, 255, 255, 0.5);
 			}
 			.crypto-btn i {
-				margin-left: 12px; /* Margin-left for icon on the right in RTL */
+				margin-left: 12px; /* Icon alignment for RTL */
 				margin-right: 0px;
 				font-size: 1.2em;
 			}
@@ -128,6 +138,8 @@
 			</header>
 
 		<div class="crypto-contact-box">
+				<p class="contact-lead">اتصل بهونغ كونغ</p>
+
 				<a href="https://wa.me/85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
 					<i class="icon brands fa-whatsapp"></i> WhatsApp: +852 63428370
 				</a>

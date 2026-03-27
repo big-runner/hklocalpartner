@@ -8,7 +8,8 @@
 		<style>
 			/* --- 基礎 CSS --- */
 			body {
-				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.98), rgba(15, 20, 25, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+				/* 背景圖替換為維港夜景，搭配深色濾鏡確保文字清晰 */
+				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.98), rgba(15, 20, 25, 0.85)), url('https://images.unsplash.com/photo-1533106497176-45ae19b68ba2?q=80&w=2070&auto=format&fit=crop');
 				background-size: cover;
 				background-position: center;
 				background-attachment: fixed;
@@ -40,7 +41,7 @@
 			}
 			.feature-text:last-child { margin-bottom: 0; }
 
-			/* --- 語言切換器 (RTL) --- */
+			/* --- 語言切換器 (LTR) --- */
 			.lang-switcher {
 				position: fixed;
 				top: 1.5em;
@@ -73,9 +74,18 @@
 				gap: 12px;
 				width: 100%;
 				max-width: 450px;
-				margin-top: 2em;
+				margin-top: 3em; /* 稍微增加間距以容納新文字 */
 				margin-left: auto;
 				margin-right: auto;
+			}
+			/* 新增的聯絡引言樣式 (LTR) */
+			.contact-lead {
+				color: #ffffff;
+				font-size: 1.1em;
+				font-weight: 600;
+				margin-bottom: 1em;
+				letter-spacing: 1px;
+				text-align: center;
 			}
 			.crypto-btn {
 				display: flex;
@@ -126,6 +136,8 @@
 			</header>
 
 		<div class="crypto-contact-box">
+				<p class="contact-lead">Connect to Hong Kong</p>
+
 				<a href="https://wa.me/85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
 					<i class="icon brands fa-whatsapp"></i> WhatsApp: +852 63428370
 				</a>
