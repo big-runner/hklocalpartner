@@ -1,165 +1,253 @@
 <!DOCTYPE HTML>
 <html lang="ar" dir="rtl">
-	<head>
-		<title>مسؤول الاتصال المحلي في هونغ كونغ | Private Operations</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
-			/* --- 基礎 CSS (RTL) --- */
-			body {
-				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.8), rgba(15, 20, 25, 0.3)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
-				background-size: cover;
-				background-position: center;
-				background-attachment: fixed;
-				direction: rtl; 
-				text-align: right; 
-			}
-			
-			/* --- 質感資訊框排版 (RTL) --- */
-			.feature-box {
-				background: rgba(0, 0, 0, 0.65);
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				padding: 2.5em;
-				border-radius: 8px;
-				margin-bottom: 2em;
-				text-align: right;
-			}
-			.feature-title {
-				color: #ffffff;
-				font-size: 1.05em;
-				font-weight: 600;
-				margin-bottom: 0.6em;
-				letter-spacing: 0px;
-			}
-			.feature-text {
-				color: rgba(255, 255, 255, 0.75);
-				font-size: 0.9em;
-				line-height: 1.8;
-				margin-bottom: 2em;
-			}
-			.feature-text:last-child { margin-bottom: 0; }
+    <head>
+        <title>مسؤول الاتصال المحلي في هونغ كونغ | Private Operations</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+        
+        <style>
+            /* --- 基礎 CSS (RTL) --- */
+            body {
+                font-family: 'Cairo', sans-serif; /* 阿拉伯語全域字體 */
+                background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                direction: rtl; 
+                text-align: right;
+                
+                /* 修復頂部超出邊界的核心代碼 */
+                justify-content: flex-start !important;
+                padding-top: 6em !important; 
+            }
+            
+            h1, .subtitle, .feature-title, .contact-lead {
+                font-family: 'Cairo', sans-serif;
+                font-weight: 700;
+            }
 
-			/* --- 語言切換器 (RTL) --- */
-			.lang-switcher {
-				position: fixed;
-				top: 1.5em;
-				left: 2em; /* Position on left for RTL flow */
-				right: auto;
-				z-index: 1000;
-				font-size: 0.8em;
-				letter-spacing: 1px;
-				display: flex;
-				gap: 1.2em;
-				align-items: center;
-			}
-			.lang-switcher a {
-				text-decoration: none;
-				color: rgba(255, 255, 255, 0.6);
-				transition: color 0.2s ease;
-			}
-			.lang-switcher a:hover {
-				color: #ffffff;
-			}
-			.lang-switcher a.active {
-				color: #ffffff;
-				font-weight: bold;
-				border-bottom: 1px solid #ffffff;
-			}
+            /* --- 修正電腦版排版 --- */
+            #header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 1200px;
+                padding: 0 1em;
+                width: 100%;
+            }
 
-			/* --- 加密通訊按鈕與版權 (RTL) --- */
-			.crypto-contact-box {
-				display: flex;
-				flex-direction: column;
-				gap: 12px;
-				width: 100%;
-				max-width: 450px;
-				margin-top: 3em; /* 稍微增加間距以容納新文字 */
-				margin-left: auto;
-				margin-right: auto;
-			}
-			/* 新增的聯絡引言樣式 (RTL) */
-			.contact-lead {
-				color: #ffffff;
-				font-size: 1.1em;
-				font-weight: 600;
-				margin-bottom: 1em;
-				letter-spacing: 0px; /* Reset for non-Latin scripts */
-				text-align: center;
-			}
-			.crypto-btn {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding: 14px 20px;
-				background-color: rgba(255, 255, 255, 0.03);
-				border: 1px solid rgba(255, 255, 255, 0.15);
-				border-radius: 6px;
-				color: #ffffff;
-				text-decoration: none;
-				font-size: 0.9em;
-				letter-spacing: 1px;
-				transition: all 0.2s ease-in-out;
-			}
-			.crypto-btn:hover {
-				background-color: rgba(255, 255, 255, 0.1);
-				border-color: rgba(255, 255, 255, 0.5);
-			}
-			.crypto-btn i {
-				margin-left: 12px; /* Icon alignment for RTL */
-				margin-right: 0px;
-				font-size: 1.2em;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+            /* --- 頂部引言排版 --- */
+            .hero-intro {
+                max-width: 800px;
+                margin: 0 auto 3em auto;
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 1.05em;
+                line-height: 1.8;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 1.5em;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
-		<nav class="lang-switcher">
-				<a href="index-ar.html" class="active">العربية</a> /
-				<a href="index.html">English</a> /
-				<a href="index-ur.html">اردو</a>
-			</nav>
+            /* --- 雙欄網格佈局 --- */
+            .features-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                margin-bottom: 3em;
+                width: 100%;
+            }
+            @media screen and (min-width: 860px) {
+                .features-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
 
-		<header id="header">
-				<h1>مسؤول الاتصال المحلي في هونغ كونغ</h1>
-				<p style="margin-bottom: 2.5em; letter-spacing: 0px; font-weight: bold; font-size: 1.2em; color: #fff;">نحن نصمت.</p>
-				
-				<div class="feature-box">
-					<div class="feature-title">1. الوكيل المحلي غير المرئي</div>
-					<div class="feature-text">صفر علاقات سياسية. صفر أجندات أعمال خفية. بصفتنا وكلاء محليين مخلصين بشدة، نتعامل مع تعقيدات مشهد الأعمال في هونغ كونغ في الظل. من التثبيت الجاهز للاستخدام إلى المفاوضات السرية، ندير الاحتكاك المحلي حتى تظل عملياتك غير مرئية وغير منقطعة.</div>
+            /* --- 質感資訊框排版 (RTL) --- */
+            .feature-box {
+                background: rgba(0, 0, 0, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 2.5em;
+                border-radius: 8px;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            .feature-title {
+                color: #ffffff;
+                font-size: 1.1em;
+                font-weight: 700;
+                margin-bottom: 1.2em;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                padding-bottom: 0.8em;
+            }
+            .feature-text {
+                color: rgba(255, 255, 255, 0.75);
+                font-size: 0.9em;
+                line-height: 1.8;
+                margin-bottom: 1.2em;
+            }
+            .feature-text strong {
+                color: #ffffff;
+                font-weight: 700;
+            }
+            .feature-text:last-child { margin-bottom: 0; }
 
-					<div class="feature-title">2. الذكاء الاصطناعي المطبق والتحقق الجوهري</div>
-					<div class="feature-text">مدفوعين بدرجة الماجستير في الفيزياء والإتقان السريع لأحدث أدوات الذكاء الاصطناعي، نستفيد من الذكاء الاصطناعي لتنفيذ أهدافك التشغيلية الأكثر تعقيدًا بكفاءة فائقة. بعيدًا عن العمليات، نستخدم هذا الإتقان التقني العميق لتقييم مشاريع الاستثمار الجديدة في الذكاء الاصطناعي والتكنولوجيا بقسوة—مجردين إياها من الضجيج لتحديد ما إذا كانت التكنولوجيا الأساسية عقلانية وقابلة للتطبيق بالفعل.</div>
+            /* --- 語言切換器 (RTL) --- */
+            .lang-switcher {
+                position: fixed;
+                top: 1.5em;
+                left: 2em; /* RTL 配置在左邊 */
+                right: auto;
+                z-index: 1000;
+                font-size: 0.8em;
+                letter-spacing: 0;
+                display: flex;
+                gap: 1.2em;
+                align-items: center;
+                background: rgba(0,0,0,0.5);
+                padding: 8px 15px;
+                border-radius: 20px;
+                backdrop-filter: blur(4px);
+            }
+            .lang-switcher a {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.6);
+                transition: color 0.2s ease;
+            }
+            .lang-switcher a:hover { color: #ffffff; }
+            .lang-switcher a.active {
+                color: #ffffff;
+                font-weight: bold;
+                border-bottom: 1px solid #ffffff;
+            }
 
-					<div class="feature-title">3. المرونة التجارية المختبرة في المعارك</div>
-					<div class="feature-text">لقد قمنا بتشغيل مؤسسة تجارية محلية في هونغ كونغ بنجاح لمدة 20 عامًا، واقفين بثبات من خلال الأزمات المالية العالمية والوباء. بينما نمتلك تراخيص تأمين قانونية شاملة (عامة وطويلة الأجل وشاملة)، فإننا لسنا وسطاء بيع بالتجزئة. نستخدم هذه التراخيص بشكل صارم كأدوات تنظيمية استراتيجية لهيكلة الامتثال القوي وحماية الأصول وخنادق إدارة المخاطر لإرث عائلتك.</div>
-				</div>
-			</header>
+            /* --- 加密通訊按鈕 (RTL) --- */
+            .crypto-contact-box {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .contact-lead {
+                color: #ffffff;
+                font-size: 1.1em;
+                font-weight: 700;
+                margin-bottom: 1em;
+                text-align: center;
+            }
+            .crypto-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 14px 20px;
+                background-color: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 6px;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 0.9em;
+                transition: all 0.2s ease-in-out;
+            }
+            .crypto-btn:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+            .crypto-btn i {
+                margin-left: 12px; /* RTL 圖示靠右 */
+                margin-right: 0px;
+                font-size: 1.2em;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
 
-		<div class="crypto-contact-box">
-				<p class="contact-lead">اتصل بهونغ كونغ</p>
+        <nav class="lang-switcher">
+            <a href="index-ar.html" class="active">العربية</a> /
+            <a href="index.html">English</a> /
+            <a href="index-ur.html">اردو</a>
+        </nav>
 
-				<a href="https://wa.me/85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon brands fa-whatsapp"></i> WhatsApp: +852 63428370
-				</a>
-				<a href="https://t.me/Coconut_Production_HK" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon brands fa-telegram-plane"></i> Telegram: @Coconut_Production_HK
-				</a>
-				<a href="https://signal.me/#p/+85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon solid fa-comment-dots"></i> Signal: +852 63428370
-				</a>
-				<a href="mailto:dee@coconutprods.com" class="crypto-btn">
-					<i class="icon regular fa-envelope"></i> dee@coconutprods.com
-				</a>
-			</div>
+        <header id="header">
+            <h1>مسؤول الاتصال المحلي في هونغ كونغ</h1>
+            <p class="subtitle" style="margin-bottom: 1em; font-weight: bold; font-size: 1.2em; color: #fff;">نحن نصمت.</p>
+            
+            <div class="hero-intro">
+                عندما يدخل رأس المال الشرق أوسطي إلى آسيا، فإنه يعتمد غالبًا على شركات المحاماة والوكلاء من الدرجة الأولى. لكن تبقى نقطة ضعف حرجة: <strong>من يراقب المراقبين؟</strong><br>
+                نحن لا نحل محل مستشارك القانوني؛ بل نعمل كعيونك وآذانك ويديك المستقلة على الأرض. نحن كبير موظفيك السري (Shadow Chief of Staff) في هونغ كونغ.
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-title">1. الإشراف والرقابة التنفيذية</div>
+                    <div class="feature-text"><strong>الواقع:</strong> الوكالات الكبرى تحسن أعمالها لزيادة ساعات الفوترة، وتتصرف ببطء مع إعطاء الأولوية للامتثال السطحي على حساب مصالحك المطلقة.</div>
+                    <div class="feature-text"><strong>التنفيذ السري:</strong> نقوم بمراجعة وكلائك المحليين، والقضاء على الاحتكاك البيروقراطي، ودفع خطتك للأمام بقوة. نعمل كأداة "للتحقق والتوازن" المطلقة لاستعادة السيطرة الكاملة على عملياتك المحلية.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">2. استخبارات التكنولوجيا العميقة ومكافحة الخداع</div>
+                    <div class="feature-text"><strong>الواقع:</strong> مشهد الشركات الناشئة في آسيا مشبع بعروض التكنولوجيا العميقة والذكاء الاصطناعي المبالغ فيها والمبنية على أسس هشة، والمصممة لجذب رأس المال الأجنبي.</div>
+                    <div class="feature-text"><strong>التنفيذ السري:</strong> بقيادة خبراء بدرجات عليا في الفيزياء ومتخصصين في الذكاء الاصطناعي، نطبق تفكير المبادئ الأولى لتفكيك والتحقق بوحشية من الواقع العلمي والتجاري للاستثمارات المستهدفة <em>قبل</em> نشر رأس المال.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">3. عمليات محلية بلا احتكاك</div>
+                    <div class="feature-text"><strong>الواقع:</strong> إن تأسيس موطئ قدم ينطوي على التعامل مع احتكاكات محلية حساسة — من تأمين العقارات الفاخرة غير المدرجة إلى تنسيق الخدمات اللوجستية التنفيذية — وهي مهام لن يتطرق إليها المصرفيون التقليديون.</div>
+                    <div class="feature-text"><strong>التنفيذ السري:</strong> بالاستفادة من 20 عامًا من الخبرة التجارية الميدانية، نعمل كحلّالين للمشاكل المحلية. نمهد الطريق في الظل حتى يتمكن فريقك من العمل على الفور وبسلاسة في النور.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">4. خندق امتثال فولاذي</div>
+                    <div class="feature-text"><strong>الواقع:</strong> يتعرض رأس المال العابر للحدود بشكل متزايد لتحولات تنظيمية محلية مفاجئة، وقوانين سيادة البيانات، ونقاط ضعف في الأصول المادية.</div>
+                    <div class="feature-text"><strong>التنفيذ السري:</strong> متسلحين بتراخيص تأمين قانونية شاملة (عامة، طويلة الأجل، شاملة)، نصمم خنادق استراتيجية للامتثال وإدارة المخاطر لا يستطيع وسطاء التجزئة العاديون هيكلتها.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">5. التوافق الأخلاقي والشرعي</div>
+                    <div class="feature-text"><strong>الواقع:</strong> غالبًا ما تخفي نماذج التكنولوجيا والأعمال الآسيوية هياكل (مثل الربا الضمني أو الغرر المفرط) تنتهك المبادئ المالية الإسلامية، والتي غالبًا ما يتم اكتشافها بعد فوات الأوان.</div>
+                    <div class="feature-text"><strong>التنفيذ السري:</strong> نوفر طبقة أولية من التصفية الأخلاقية والثقافية. نستخدم الذكاء الاصطناعي والرؤية المحلية العميقة لضمان توافق عمليات الاستحواذ والتشغيل المستهدفة بدقة مع تفويضات عائلتك.</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">6. سرية تامة</div>
+                    <div class="feature-text"><strong>الواقع:</strong> في اللحظة التي يظهر فيها اسم مكتب عائلة شرق أوسطي بارز في السوق المحلية، تتضاعف الأسعار ("علاوة الشرق الأوسط") ويتضاعف الإزعاج غير المرغوب فيه.</div>
+                    <div class="feature-text"><strong>التنفيذ السري:</strong> صفر علاقات سياسية. صفر تضارب مصالح محلي. نحن نتفاوض، وندقق، وننفذ كوكيلك غير القابل للمساومة، مما يضمن ألا تترك عملياتك أي أثر.</div>
+                </div>
+            </div>
+            
+            <div class="crypto-contact-box">
+                <p class="contact-lead">اتصل بهونغ كونغ</p>
+                
+                <a href="https://wa.me/85254952386" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon brands fa-whatsapp"></i> WhatsApp: +852 5495 2386
+                </a>
+                <a href="https://t.me/+85254952386" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon brands fa-telegram-plane"></i> Telegram: +852 5495 2386
+                </a>
+                <a href="https://signal.me/#p/+85254952386" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon solid fa-comment-dots"></i> Signal: +852 5495 2386
+                </a>
+                <a href="mailto:dee@coconutprods.com" class="crypto-btn">
+                    <i class="icon regular fa-envelope"></i> dee@coconutprods.com
+                </a>
+            </div>
+        </header>
 
-		<footer id="footer">
-				<ul class="copyright" style="margin-top: 4em;">
-					<li>Coconut Production Limited ©. جميع الحقوق محفوظة.</li><li>سري للغاية</li>
-				</ul>
-			</footer>
+        <footer id="footer">
+            <ul class="copyright" style="margin-top: 4em;">
+                <li>Coconut Production Limited ©. جميع الحقوق محفوظة.</li><li>سري للغاية</li>
+            </ul>
+        </footer>
 
-		<script src="assets/js/main.js"></script>
+        <script src="assets/js/main.js"></script>
 
-	</body>
+    </body>
 </html>

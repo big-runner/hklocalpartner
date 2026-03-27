@@ -1,165 +1,251 @@
 <!DOCTYPE HTML>
 <html lang="ur" dir="rtl">
-	<head>
-		<title>ہانگ کانگ لوکل رابطہ | Private Operations</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<style>
-			/* --- 基礎 CSS (RTL) --- */
-			body {
-				background-image: linear-gradient(to top, rgba(10, 12, 18, 0.8), rgba(15, 20, 25, 0.3)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
-				background-size: cover;
-				background-position: center;
-				background-attachment: fixed;
-				direction: rtl; 
-				text-align: right; 
-			}
-			
-			/* --- 質感資訊框排版 (RTL) --- */
-			.feature-box {
-				background: rgba(0, 0, 0, 0.65);
-				border: 1px solid rgba(255, 255, 255, 0.08);
-				padding: 2.5em;
-				border-radius: 8px;
-				margin-bottom: 2em;
-				text-align: right;
-			}
-			.feature-title {
-				color: #ffffff;
-				font-size: 1.05em;
-				font-weight: 600;
-				margin-bottom: 0.6em;
-				letter-spacing: 0px;
-			}
-			.feature-text {
-				color: rgba(255, 255, 255, 0.75);
-				font-size: 0.9em;
-				line-height: 1.8;
-				margin-bottom: 2em;
-			}
-			.feature-text:last-child { margin-bottom: 0; }
+    <head>
+        <title>ہانگ کانگ لوکل رابطہ | Private Operations</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+        
+        <style>
+            /* --- 基礎 CSS (RTL + 烏爾都語優化) --- */
+            body {
+                font-family: 'Noto Nastaliq Urdu', serif;
+                font-size: 1.15em; /* 烏爾都語字體通常偏小，需全局放大 */
+                background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                direction: rtl; 
+                text-align: right;
+                
+                /* 修復頂部超出邊界的核心代碼 */
+                justify-content: flex-start !important;
+                padding-top: 6em !important; 
+            }
+            
+            h1, .subtitle, .feature-title, .contact-lead {
+                font-family: 'Noto Nastaliq Urdu', serif;
+                font-weight: 700;
+            }
 
-			/* --- 語言切換器 (RTL) --- */
-			.lang-switcher {
-				position: fixed;
-				top: 1.5em;
-				left: 2em; /* Left for RTL flow */
-				right: auto;
-				z-index: 1000;
-				font-size: 0.8em;
-				letter-spacing: 1px;
-				display: flex;
-				gap: 1.2em;
-				align-items: center;
-			}
-			.lang-switcher a {
-				text-decoration: none;
-				color: rgba(255, 255, 255, 0.6);
-				transition: color 0.2s ease;
-			}
-			.lang-switcher a:hover {
-				color: #ffffff;
-			}
-			.lang-switcher a.active {
-				color: #ffffff;
-				font-weight: bold;
-				border-bottom: 1px solid #ffffff;
-			}
+            /* --- 修正電腦版排版 --- */
+            #header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 1200px;
+                padding: 0 1em;
+                width: 100%;
+            }
 
-			/* --- 加密通訊按鈕與版權 (RTL) --- */
-			.crypto-contact-box {
-				display: flex;
-				flex-direction: column;
-				gap: 12px;
-				width: 100%;
-				max-width: 450px;
-				margin-top: 3em; /* 稍微增加間距以容納新文字 */
-				margin-left: auto;
-				margin-right: auto;
-			}
-			/* 新增的聯絡引言樣式 (RTL) */
-			.contact-lead {
-				color: #ffffff;
-				font-size: 1.1em;
-				font-weight: 600;
-				margin-bottom: 1em;
-				letter-spacing: 0px; /* Reset */
-				text-align: center;
-			}
-			.crypto-btn {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				padding: 14px 20px;
-				background-color: rgba(255, 255, 255, 0.03);
-				border: 1px solid rgba(255, 255, 255, 0.15);
-				border-radius: 6px;
-				color: #ffffff;
-				text-decoration: none;
-				font-size: 0.9em;
-				letter-spacing: 1px;
-				transition: all 0.2s ease-in-out;
-			}
-			.crypto-btn:hover {
-				background-color: rgba(255, 255, 255, 0.1);
-				border-color: rgba(255, 255, 255, 0.5);
-			}
-			.crypto-btn i {
-				margin-left: 12px; /* Icon alignment for RTL */
-				margin-right: 0px;
-				font-size: 1.2em;
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+            /* --- 頂部引言排版 --- */
+            .hero-intro {
+                max-width: 800px;
+                margin: 0 auto 3em auto;
+                color: rgba(255, 255, 255, 0.85);
+                line-height: 2.2; /* 增加行高適應書法體 */
+                text-align: center;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 1.5em;
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
 
-		<nav class="lang-switcher">
-				<a href="index-ur.html" class="active">اردو</a> /
-				<a href="index.html">English</a> /
-				<a href="index-ar.html">العربية</a>
-			</nav>
+            /* --- 雙欄網格佈局 --- */
+            .features-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                margin-bottom: 3em;
+                width: 100%;
+            }
+            @media screen and (min-width: 860px) {
+                .features-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
 
-		<header id="header">
-				<h1>ہانگ کانگ لوکل رابطہ</h1>
-				<p style="margin-bottom: 2.5em; letter-spacing: 0px; font-weight: bold; font-size: 1.2em; color: #fff;">ہم خاموشی اختیار کرتے ہیں۔</p>
-				
-				<div class="feature-box">
-					<div class="feature-title">1. غیر مرئی لوکل پراکسی</div>
-					<div class="feature-text">صفر سیاسی تعلقات۔ صفر پوشیدہ کاروباری ایجنڈے۔ آپ کے انتہائی وفادار لوکل فکسر کے طور پر، ہم ہانگ کانگ کے کاروباري ماحول کی پیچیدگیوں کو پردے کے پیچھے سنبھالتے ہیں۔ تیار سیٹ اپ سے لے کر خفیہ مذاکرات تک، ہم لوکل رگڑ کو سنبھالتے ہیں تاکہ آپ کے آپریشنز غیر مرئی اور بلاتعطل رہیں۔</div>
+            /* --- 質感資訊框排版 (RTL) --- */
+            .feature-box {
+                background: rgba(0, 0, 0, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 2.5em;
+                border-radius: 8px;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            .feature-title {
+                color: #ffffff;
+                font-weight: 700;
+                margin-bottom: 1.2em;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                padding-bottom: 0.8em;
+            }
+            .feature-text {
+                color: rgba(255, 255, 255, 0.75);
+                font-size: 0.9em;
+                line-height: 2.2;
+                margin-bottom: 1.2em;
+            }
+            .feature-text strong {
+                color: #ffffff;
+                font-weight: 700;
+            }
+            .feature-text:last-child { margin-bottom: 0; }
 
-					<div class="feature-title">2. اپلائیڈ AI اور ہارڈکور تصدیق</div>
-					<div class="feature-text">فزکس میں ماسٹرز اور جدید ترین AI ٹولز کی تیز رفتار مہارت کے ذریعے، ہم آپ کے پیچیدہ ترین آپریشنل اہداف کو انتہائی کارکردگی کے ساتھ انجام دینے کے لیے مصنوعی ذہانت کا فائدہ اٹھاتے ہیں۔ آپریشنز سے ہٹ کر، ہم اس گہری تکنیکی روانی کا استعمال نئے AI اور ٹیک سرمایہ کاری کے منصوبوں کا بے رحمی سے جائزہ لینے کے لیے کرتے ہیں—ہائپ کو ہٹاتے ہوئے یہ طے کرنے کے لیے کہ آیا بنیادی ٹیکنالوجی حقیقت میں عقلی اور قابل عمل ہے۔</div>
+            /* --- 語言切換器 (RTL) --- */
+            .lang-switcher {
+                position: fixed;
+                top: 1.5em;
+                left: 2em;
+                right: auto;
+                z-index: 1000;
+                font-size: 0.8em;
+                display: flex;
+                gap: 1.2em;
+                align-items: center;
+                background: rgba(0,0,0,0.5);
+                padding: 8px 15px;
+                border-radius: 20px;
+                backdrop-filter: blur(4px);
+            }
+            .lang-switcher a {
+                text-decoration: none;
+                color: rgba(255, 255, 255, 0.6);
+                transition: color 0.2s ease;
+            }
+            .lang-switcher a:hover { color: #ffffff; }
+            .lang-switcher a.active {
+                color: #ffffff;
+                font-weight: bold;
+                border-bottom: 1px solid #ffffff;
+            }
 
-					<div class="feature-title">3. جنگ آزمودہ کمرشل لچک</div>
-					<div class="feature-text">ہم نے ہانگ کانگ میں 20 سالوں سے ایک مقامی کمرشل ادارے کو کامیابی کے ساتھ چلایا ہے، جو عالمی مالیاتی بحرانوں اور وبا کے دوران ثابت قدم رہا。 अगरچہ हमारे पास جامع قانونی انشورنس لائسنس (جنرل، طویل مدتی，اور جامع) ہیں，ہم ریٹیل بروکر نہیں ہیں۔ ہم ان لائسنسوں کو سختی سے اسٹریٹجك ریگولیٹری ٹولز کے طور پر استعمال کرتے ہیں تاکہ آپ की فیملی کی میراث کے لیے آہنی تعمیل，اثاثوں کے تحفظ，اور رسک مینجمنٹ خندقوں کو ڈھالا جا سکے۔</div>
-				</div>
-			</header>
+            /* --- 加密通訊按鈕 (RTL) --- */
+            .crypto-contact-box {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .contact-lead {
+                color: #ffffff;
+                font-weight: 700;
+                margin-bottom: 1em;
+                text-align: center;
+            }
+            .crypto-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 14px 20px;
+                background-color: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 6px;
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 0.8em;
+                font-family: 'Inter', sans-serif; /* 電話數字保持英文易讀性 */
+                transition: all 0.2s ease-in-out;
+            }
+            .crypto-btn:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+            .crypto-btn i {
+                margin-left: 12px;
+                margin-right: 0px;
+                font-size: 1.2em;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
 
-		<div class="crypto-contact-box">
-				<p class="contact-lead">ہانگ کانگ سے جڑیں</p>
+        <nav class="lang-switcher">
+            <a href="index-ur.html" class="active">اردو</a> /
+            <a href="index.html">English</a> /
+            <a href="index-ar.html">العربية</a>
+        </nav>
 
-				<a href="https://wa.me/85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon brands fa-whatsapp"></i> WhatsApp: +852 63428370
-				</a>
-				<a href="https://t.me/Coconut_Production_HK" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon brands fa-telegram-plane"></i> Telegram: @Coconut_Production_HK
-				</a>
-				<a href="https://signal.me/#p/+85263428370" target="_blank" rel="noopener noreferrer" class="crypto-btn">
-					<i class="icon solid fa-comment-dots"></i> Signal: +852 63428370
-				</a>
-				<a href="mailto:dee@coconutprods.com" class="crypto-btn">
-					<i class="icon regular fa-envelope"></i> dee@coconutprods.com
-				</a>
-			</div>
+        <header id="header">
+            <h1>ہانگ کانگ لوکل رابطہ</h1>
+            <p class="subtitle" style="margin-bottom: 1em; font-weight: bold; font-size: 1.2em; color: #fff;">ہم خاموشی اختیار کرتے ہیں۔</p>
+            
+            <div class="hero-intro">
+                جب مشرق وسطیٰ کا سرمایہ ایشیا میں داخل ہوتا ہے تو یہ اکثر اعلیٰ درجے کی لاء فرموں اور کارپوریٹ ایجنٹوں پر انحصار کرتا ہے۔ لیکن ایک اہم کمزوری باقی رہتی ہے: <strong>نگرانوں کی نگرانی کون کر رہا ہے؟</strong><br>
+                ہم آپ کے قانونی مشیر کی جگہ نہیں لیتے؛ ہم زمین پر آپ کی آزاد آنکھوں، کانوں اور ہاتھوں کے طور پر کام کرتے ہیں۔ ہم ہانگ کانگ میں آپ کے خفیہ شیڈو چیف آف اسٹاف ہیں۔
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-title">1. ایگزیکٹو نگرانی اور کنٹرول</div>
+                    <div class="feature-text"><strong>حقیقت:</strong> بڑی ایجنسیاں اپنے بل کے گھنٹوں کو بڑھانے کو ترجیح دیتی ہیں، سست روی سے کام کرتی ہیں اور آپ کے قطعی مفادات پر سطحی تعمیل کو ترجیح دیتی ہیں۔</div>
+                    <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> ہم آپ کے مقامی ایجنٹوں کا آڈٹ کرتے ہیں، بیوروکریٹک رکاوٹوں کو ختم کرتے ہیں، اور بے رحمی سے آپ کے ایجنڈے کو آگے بڑھاتے ہیں۔ ہم آپ کی مقامی تعیناتیوں پر مکمل کنٹرول دوبارہ حاصل کرنے کے لیے آپ کے حتمی "چیک اینڈ بیلنس" کے طور پر کام کرتے ہیں۔</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">2. ڈیپ ٹیک انٹیلی جنس اور اینٹی بی ایس</div>
+                    <div class="feature-text"><strong>حقیقت:</strong> ایشیا کا اسٹارٹ اپ منظر نامہ غیر ملکی سرمائے کو اپنی طرف متوجہ کرنے کے لیے ڈیزائن کی گئی کمزور بنیادوں پر بنی مبالغہ آمیز "ڈیپ ٹیک" اور "AI" پچوں سے بھرا ہوا ہے۔</div>
+                    <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> فزکس کے پوسٹ گریجویٹ اور AI ماہرین کی قیادت میں، ہم سرمایہ کاری کرنے سے <em>پہلے</em> ہدف کی سرمایہ کاری کی سائنسی اور تجارتی حقیقت کو بے رحمی سے جانچنے کے لیے فرسٹ پرنسپلز کی سوچ کا اطلاق کرتے ہیں۔</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">3. رگڑ سے پاک مقامی آپریشنز</div>
+                    <div class="feature-text"><strong>حقیقت:</strong> قدم جمانے میں حساس مقامی رکاوٹوں کو عبور کرنا شامل ہے—غیر مندرج پریمیم رئیل اسٹیٹ حاصل کرنے سے لے کر ایگزیکٹو لاجسٹکس کو منظم کرنے تک—ایسے کام جنہیں روایتی بینکرز نہیں چھوئیں گے۔</div>
+                    <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> 20 سال کے زمینی تجارتی تجربے سے فائدہ اٹھاتے ہوئے، ہم آپ کے مقامی فکسر کے طور پر کام کرتے ہیں۔ ہم پردے کے پیچھے راستہ ہموار کرتے ہیں تاکہ آپ کی ٹیم روشنی میں فوری اور بغیر کسی رکاوٹ کے کام کر سکے۔</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">4. آہنی تعمیل کی خندق</div>
+                    <div class="feature-text"><strong>حقیقت:</strong> سرحد پار سرمایہ تیزی سے اچانک مقامی ریگولیٹری تبدیلیوں، ڈیٹا کی خودمختاری کے قوانین، اور مادی اثاثوں کے خطرات سے دوچار ہے۔</div>
+                    <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> جامع قانونی انشورنس لائسنس (جنرل، طویل مدتی، جامع) سے لیس، ہم اسٹریٹجک، آہنی تعمیل اور رسک مینجمنٹ خندقیں بناتے ہیں جو عام ریٹیل بروکرز نہیں بنا سکتے۔</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">5. اخلاقی اور شرعی ہم آہنگی</div>
+                    <div class="feature-text"><strong>حقیقت:</strong> ایشیائی ٹیک اور کاروباری ماڈلز اکثر چھپے ہوئے ڈھانچے (جیسے، مضمر ربا یا قیاس آرائی پر مبنی غرر) کو پناہ دیتے ہیں جو اسلامی مالیاتی اصولوں کی خلاف ورزی کرتے ہیں، جو اکثر بہت دیر سے دریافت ہوتے ہیں۔</div>
+                    <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> ہم اخلاقی اور ثقافتی فلٹرنگ کی ابتدائی تہہ فراہم کرتے ہیں۔ ہم AI اور گہری مقامی بصیرت کا استعمال کرتے ہیں تاکہ یہ یقینی بنایا جا سکے کہ آپ کے اہداف اور آپریشنز آپ کے خاندانی مینڈیٹ کے ساتھ سختی سے ہم آہنگ ہیں۔</div>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">6. مکمل رازداری</div>
+                    <div class="feature-text"><strong>حقیقت:</strong> جس لمحے مشرق وسطیٰ کے کسی نمایاں فیملی آفس کا نام مقامی مارکیٹ میں سامنے آتا ہے، قیمتیں دگنی ہو جاتی ہیں اور غیر مطلوبہ پیشکشیں بڑھ جاتی ہیں۔</div>
+                    <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> صفر سیاسی تعلقات۔ صفر مقامی مفادات کا ٹکراؤ۔ ہم آپ کے غیر سمجھوتہ کن پراکسی کے طور پر گفت و شنید، آڈٹ، اور عمل درآمد کرتے ہیں، اس بات کو یقینی بناتے ہوئے کہ آپ کے آپریشنز کوئی نشان نہ چھوڑیں۔</div>
+                </div>
+            </div>
+            
+            <div class="crypto-contact-box">
+                <p class="contact-lead">ہانگ کانگ سے جڑیں</p>
+                
+                <a href="https://wa.me/85254952386" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon brands fa-whatsapp"></i> WhatsApp: +852 5495 2386
+                </a>
+                <a href="https://t.me/+85254952386" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon brands fa-telegram-plane"></i> Telegram: +852 5495 2386
+                </a>
+                <a href="https://signal.me/#p/+85254952386" target="_blank" rel="noopener noreferrer" class="crypto-btn">
+                    <i class="icon solid fa-comment-dots"></i> Signal: +852 5495 2386
+                </a>
+                <a href="mailto:dee@coconutprods.com" class="crypto-btn">
+                    <i class="icon regular fa-envelope"></i> dee@coconutprods.com
+                </a>
+            </div>
+        </header>
 
-		<footer id="footer">
-				<ul class="copyright" style="margin-top: 4em;">
-					<li>Coconut Production Limited ©. تمام حقوق محفوظ ہیں۔</li><li>انتہائی خفیہ</li>
-				</ul>
-			</footer>
+        <footer id="footer">
+            <ul class="copyright" style="margin-top: 4em;">
+                <li style="font-family: 'Inter', sans-serif;">Coconut Production Limited ©. تمام حقوق محفوظ ہیں۔</li><li>انتہائی خفیہ</li>
+            </ul>
+        </footer>
 
-		<script src="assets/js/main.js"></script>
+        <script src="assets/js/main.js"></script>
 
-	</body>
+    </body>
 </html>
