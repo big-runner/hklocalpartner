@@ -11,28 +11,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
         
         <style>
-            /* --- 基礎 CSS (RTL + 烏爾都語優化) --- */
             body {
                 font-family: 'Noto Nastaliq Urdu', serif;
-                font-size: 1.15em; /* 烏爾都語字體通常偏小，需全局放大 */
+                font-size: 1.15em;
                 background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
                 direction: rtl; 
                 text-align: right;
-                
-                /* 修復頂部超出邊界的核心代碼 */
                 justify-content: flex-start !important;
                 padding-top: 6em !important; 
             }
             
-            h1, .subtitle, .feature-title, .contact-lead {
+            h1, .subtitle, .feature-title, .contact-lead, .protocol-title {
                 font-family: 'Noto Nastaliq Urdu', serif;
                 font-weight: 700;
             }
 
-            /* --- 修正電腦版排版 --- */
             #header {
                 display: flex;
                 flex-direction: column;
@@ -45,12 +41,11 @@
                 width: 100%;
             }
 
-            /* --- 頂部引言排版 --- */
             .hero-intro {
                 max-width: 800px;
                 margin: 0 auto 3em auto;
                 color: rgba(255, 255, 255, 0.85);
-                line-height: 2.2; /* 增加行高適應書法體 */
+                line-height: 2.2;
                 text-align: center;
                 background: rgba(0, 0, 0, 0.5);
                 padding: 1.5em;
@@ -58,21 +53,17 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
-            /* --- 雙欄網格佈局 --- */
             .features-grid {
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 2em;
-                margin-bottom: 3em;
+                margin-bottom: 4em;
                 width: 100%;
             }
             @media screen and (min-width: 860px) {
-                .features-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
+                .features-grid { grid-template-columns: 1fr 1fr; }
             }
 
-            /* --- 質感資訊框排版 (RTL) --- */
             .feature-box {
                 background: rgba(0, 0, 0, 0.75);
                 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -103,7 +94,38 @@
             }
             .feature-text:last-child { margin-bottom: 0; }
 
-            /* --- 語言切換器 (RTL) --- */
+            /* --- 新增：接戰準則 (Engagement Protocol) 排版 RTL --- */
+            .engagement-protocol {
+                background: rgba(0, 0, 0, 0.65);
+                border: 1px dashed rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                padding: 2em;
+                max-width: 650px;
+                margin: 0 auto 3em auto;
+                text-align: right; /* RTL */
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            .protocol-title {
+                color: #ffffff;
+                font-weight: 700;
+                margin-bottom: 1.2em;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                padding-bottom: 0.8em;
+            }
+            .protocol-list {
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.95em;
+                line-height: 2.2;
+                margin: 0;
+                padding-right: 1.5em; /* RTL 靠右內縮 */
+                padding-left: 0;
+            }
+            .protocol-list li { margin-bottom: 0.8em; }
+            .protocol-list li:last-child { margin-bottom: 0; }
+            .protocol-list strong { color: #ffffff; font-weight: 700; }
+
             .lang-switcher {
                 position: fixed;
                 top: 1.5em;
@@ -131,7 +153,6 @@
                 border-bottom: 1px solid #ffffff;
             }
 
-            /* --- 加密通訊按鈕 (RTL) --- */
             .crypto-contact-box {
                 display: flex;
                 flex-direction: column;
@@ -157,7 +178,7 @@
                 color: #ffffff;
                 text-decoration: none;
                 font-size: 0.8em;
-                font-family: 'Inter', sans-serif; /* 電話數字保持英文易讀性 */
+                font-family: 'Inter', sans-serif;
                 transition: all 0.2s ease-in-out;
             }
             .crypto-btn:hover {
@@ -198,6 +219,7 @@
                     <div class="feature-title">2. ڈیپ ٹیک انٹیلی جنس اور اینٹی بی ایس</div>
                     <div class="feature-text"><strong>حقیقت:</strong> ایشیا کا اسٹارٹ اپ منظر نامہ غیر ملکی سرمائے کو اپنی طرف متوجہ کرنے کے لیے ڈیزائن کی گئی کمزور بنیادوں پر بنی مبالغہ آمیز "ڈیپ ٹیک" اور "AI" پچوں سے بھرا ہوا ہے۔</div>
                     <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> فزکس کے پوسٹ گریجویٹ اور AI ماہرین کی قیادت میں، ہم سرمایہ کاری کرنے سے <em>پہلے</em> ہدف کی سرمایہ کاری کی سائنسی اور تجارتی حقیقت کو بے رحمی سے جانچنے کے لیے فرسٹ پرنسپلز کی سوچ کا اطلاق کرتے ہیں۔</div>
+                    <div class="feature-text"><strong>ڈیٹا کی خودمختاری:</strong> تمام تجزیاتی کام مقامی اور طبعی طور پر الگ تھلگ (air-gapped) ماحول میں پروسیس کیے جاتے ہیں۔ پبلک API ڈیٹا لیک ہونے کا خطرہ صفر ہے۔</div>
                 </div>
                 <div class="feature-box">
                     <div class="feature-title">3. رگڑ سے پاک مقامی آپریشنز</div>
@@ -219,6 +241,15 @@
                     <div class="feature-text"><strong>حقیقت:</strong> جس لمحے مشرق وسطیٰ کے کسی نمایاں فیملی آفس کا نام مقامی مارکیٹ میں سامنے آتا ہے، قیمتیں دگنی ہو جاتی ہیں اور غیر مطلوبہ پیشکشیں بڑھ جاتی ہیں۔</div>
                     <div class="feature-text"><strong>خفیہ عمل درآمد:</strong> صفر سیاسی تعلقات۔ صفر مقامی مفادات کا ٹکراؤ۔ ہم آپ کے غیر سمجھوتہ کن پراکسی کے طور پر گفت و شنید، آڈٹ، اور عمل درآمد کرتے ہیں، اس بات کو یقینی بناتے ہوئے کہ آپ کے آپریشنز کوئی نشان نہ چھوڑیں۔</div>
                 </div>
+            </div>
+
+            <div class="engagement-protocol">
+                <div class="protocol-title">رابطے کا ضابطہ</div>
+                <ol class="protocol-list">
+                    <li><strong>انکرپٹڈ آغاز:</strong> ہمارے محفوظ ذرائع سے رابطہ کریں۔</li>
+                    <li><strong>باہمی NDA:</strong> 24 گھنٹے کے اندر سخت نان ڈسکلوزر معاہدہ۔</li>
+                    <li><strong>محفوظ بریفنگ:</strong> آپ کے ایشیائی مینڈیٹ کا نجی جائزہ۔</li>
+                </ol>
             </div>
             
             <div class="crypto-contact-box">

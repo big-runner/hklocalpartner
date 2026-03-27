@@ -11,27 +11,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
         
         <style>
-            /* --- 基礎 CSS (RTL) --- */
             body {
-                font-family: 'Cairo', sans-serif; /* 阿拉伯語全域字體 */
+                font-family: 'Cairo', sans-serif;
                 background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
                 direction: rtl; 
                 text-align: right;
-                
-                /* 修復頂部超出邊界的核心代碼 */
                 justify-content: flex-start !important;
                 padding-top: 6em !important; 
             }
             
-            h1, .subtitle, .feature-title, .contact-lead {
+            h1, .subtitle, .feature-title, .contact-lead, .protocol-title {
                 font-family: 'Cairo', sans-serif;
                 font-weight: 700;
             }
 
-            /* --- 修正電腦版排版 --- */
             #header {
                 display: flex;
                 flex-direction: column;
@@ -44,7 +40,6 @@
                 width: 100%;
             }
 
-            /* --- 頂部引言排版 --- */
             .hero-intro {
                 max-width: 800px;
                 margin: 0 auto 3em auto;
@@ -58,21 +53,17 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
-            /* --- 雙欄網格佈局 --- */
             .features-grid {
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 2em;
-                margin-bottom: 3em;
+                margin-bottom: 4em;
                 width: 100%;
             }
             @media screen and (min-width: 860px) {
-                .features-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
+                .features-grid { grid-template-columns: 1fr 1fr; }
             }
 
-            /* --- 質感資訊框排版 (RTL) --- */
             .feature-box {
                 background: rgba(0, 0, 0, 0.75);
                 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,15 +95,46 @@
             }
             .feature-text:last-child { margin-bottom: 0; }
 
-            /* --- 語言切換器 (RTL) --- */
+            /* --- 新增：接戰準則 (Engagement Protocol) 排版 RTL --- */
+            .engagement-protocol {
+                background: rgba(0, 0, 0, 0.65);
+                border: 1px dashed rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                padding: 2em;
+                max-width: 650px;
+                margin: 0 auto 3em auto;
+                text-align: right; /* RTL */
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            .protocol-title {
+                color: #ffffff;
+                font-size: 1.1em;
+                font-weight: 700;
+                margin-bottom: 1.2em;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                padding-bottom: 0.8em;
+            }
+            .protocol-list {
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.95em;
+                line-height: 1.8;
+                margin: 0;
+                padding-right: 1.5em; /* RTL 靠右內縮 */
+                padding-left: 0;
+            }
+            .protocol-list li { margin-bottom: 0.8em; }
+            .protocol-list li:last-child { margin-bottom: 0; }
+            .protocol-list strong { color: #ffffff; font-weight: 700; }
+
             .lang-switcher {
                 position: fixed;
                 top: 1.5em;
-                left: 2em; /* RTL 配置在左邊 */
+                left: 2em;
                 right: auto;
                 z-index: 1000;
                 font-size: 0.8em;
-                letter-spacing: 0;
                 display: flex;
                 gap: 1.2em;
                 align-items: center;
@@ -133,7 +155,6 @@
                 border-bottom: 1px solid #ffffff;
             }
 
-            /* --- 加密通訊按鈕 (RTL) --- */
             .crypto-contact-box {
                 display: flex;
                 flex-direction: column;
@@ -167,7 +188,7 @@
                 border-color: rgba(255, 255, 255, 0.5);
             }
             .crypto-btn i {
-                margin-left: 12px; /* RTL 圖示靠右 */
+                margin-left: 12px;
                 margin-right: 0px;
                 font-size: 1.2em;
             }
@@ -200,6 +221,7 @@
                     <div class="feature-title">2. استخبارات التكنولوجيا العميقة ومكافحة الخداع</div>
                     <div class="feature-text"><strong>الواقع:</strong> مشهد الشركات الناشئة في آسيا مشبع بعروض التكنولوجيا العميقة والذكاء الاصطناعي المبالغ فيها والمبنية على أسس هشة، والمصممة لجذب رأس المال الأجنبي.</div>
                     <div class="feature-text"><strong>التنفيذ السري:</strong> بقيادة خبراء بدرجات عليا في الفيزياء ومتخصصين في الذكاء الاصطناعي، نطبق تفكير المبادئ الأولى لتفكيك والتحقق بوحشية من الواقع العلمي والتجاري للاستثمارات المستهدفة <em>قبل</em> نشر رأس المال.</div>
+                    <div class="feature-text"><strong>سيادة البيانات:</strong> تتم معالجة جميع أعباء العمل التحليلية داخل بيئات محلية ومعزولة ماديًا. صفر تسرب لبيانات واجهة برمجة التطبيقات (API) العامة.</div>
                 </div>
                 <div class="feature-box">
                     <div class="feature-title">3. عمليات محلية بلا احتكاك</div>
@@ -221,6 +243,15 @@
                     <div class="feature-text"><strong>الواقع:</strong> في اللحظة التي يظهر فيها اسم مكتب عائلة شرق أوسطي بارز في السوق المحلية، تتضاعف الأسعار ("علاوة الشرق الأوسط") ويتضاعف الإزعاج غير المرغوب فيه.</div>
                     <div class="feature-text"><strong>التنفيذ السري:</strong> صفر علاقات سياسية. صفر تضارب مصالح محلي. نحن نتفاوض، وندقق، وننفذ كوكيلك غير القابل للمساومة، مما يضمن ألا تترك عملياتك أي أثر.</div>
                 </div>
+            </div>
+
+            <div class="engagement-protocol">
+                <div class="protocol-title">بروتوكول التعامل</div>
+                <ol class="protocol-list">
+                    <li><strong>بدء مشفر:</strong> تواصل عبر قنواتنا الآمنة.</li>
+                    <li><strong>اتفاقية سرية متبادلة (NDA):</strong> اتفاقية عدم إفشاء صارمة خلال 24 ساعة.</li>
+                    <li><strong>إحاطة آمنة:</strong> تقييم خاص لمهامك في آسيا.</li>
+                </ol>
             </div>
             
             <div class="crypto-contact-box">

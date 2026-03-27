@@ -13,25 +13,21 @@
         <style>
             /* --- 基礎 CSS --- */
             body {
-                font-family: 'Inter', sans-serif; /* 全域預設使用極度冷靜清晰的 Inter 內文字體 */
+                font-family: 'Inter', sans-serif;
                 background-image: linear-gradient(to top, rgba(10, 12, 18, 0.95), rgba(15, 20, 25, 0.75)), url('https://images.unsplash.com/photo-1516893676001-52fdf7605797?q=80&w=2070&auto=format&fit=crop');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
                 direction: ltr; 
                 text-align: left;
-                
-                /* 修復頂部超出邊界的核心代碼 */
                 justify-content: flex-start !important;
                 padding-top: 6em !important; 
             }
             
-            /* --- 針對標題強制使用具備權威感的 Montserrat 字體 --- */
-            h1, .subtitle, .feature-title, .contact-lead {
+            h1, .subtitle, .feature-title, .contact-lead, .protocol-title {
                 font-family: 'Montserrat', sans-serif;
             }
 
-            /* --- 修正電腦版排版：強制置中與寬度限制 --- */
             #header {
                 display: flex;
                 flex-direction: column;
@@ -44,7 +40,6 @@
                 width: 100%;
             }
 
-            /* --- 頂部引言排版 --- */
             .hero-intro {
                 max-width: 800px;
                 margin: 0 auto 3em auto;
@@ -58,21 +53,17 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
-            /* --- 雙欄網格佈局 --- */
             .features-grid {
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 2em;
-                margin-bottom: 3em;
+                margin-bottom: 4em;
                 width: 100%;
             }
             @media screen and (min-width: 860px) {
-                .features-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
+                .features-grid { grid-template-columns: 1fr 1fr; }
             }
 
-            /* --- 質感資訊框排版 --- */
             .feature-box {
                 background: rgba(0, 0, 0, 0.75);
                 border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,6 +95,40 @@
                 font-weight: 600;
             }
             .feature-text:last-child { margin-bottom: 0; }
+
+            /* --- 新增：接戰準則 (Engagement Protocol) 排版 --- */
+            .engagement-protocol {
+                background: rgba(0, 0, 0, 0.65);
+                border: 1px dashed rgba(255, 255, 255, 0.3); /* 機密檔案的虛線感 */
+                border-radius: 8px;
+                padding: 2em;
+                max-width: 650px;
+                margin: 0 auto 3em auto;
+                text-align: left;
+                backdrop-filter: blur(5px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            .protocol-title {
+                color: #ffffff;
+                font-size: 1.1em;
+                font-weight: 700;
+                margin-bottom: 1.2em;
+                text-align: center;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                padding-bottom: 0.8em;
+            }
+            .protocol-list {
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.95em;
+                line-height: 1.8;
+                margin: 0;
+                padding-left: 1.5em;
+            }
+            .protocol-list li { margin-bottom: 0.8em; }
+            .protocol-list li:last-child { margin-bottom: 0; }
+            .protocol-list strong { color: #ffffff; font-weight: 600; }
 
             /* --- 語言切換器 --- */
             .lang-switcher {
@@ -201,6 +226,7 @@
                     <div class="feature-title">2. Deep-Tech Intelligence & Anti-BS</div>
                     <div class="feature-text"><strong>The Reality:</strong> Asia’s startup scene is saturated with hyped "Deep-Tech" and "AI" pitches built on flimsy foundations, designed to capture foreign capital.</div>
                     <div class="feature-text"><strong>The Shadow Execution:</strong> Led by Physics postgraduates and AI specialists, we apply first-principles thinking to brutally tear down and verify the scientific and commercial reality of target investments <em>before</em> you deploy capital.</div>
+                    <div class="feature-text"><strong>Data Sovereignty:</strong> All analytical workloads are processed within localized, air-gapped environments. Zero public API data leakage.</div>
                 </div>
                 <div class="feature-box">
                     <div class="feature-title">3. Frictionless Local Operations</div>
@@ -222,6 +248,15 @@
                     <div class="feature-text"><strong>The Reality:</strong> The moment a prominent Middle Eastern Family Office name surfaces in the local market, prices double ("Middle East Premium") and unwanted solicitations multiply.</div>
                     <div class="feature-text"><strong>The Shadow Execution:</strong> Zero political ties. Zero local conflicts of interest. We negotiate, audit, and execute as your uncompromised proxy, ensuring your operations leave zero footprint.</div>
                 </div>
+            </div>
+
+            <div class="engagement-protocol">
+                <div class="protocol-title">Engagement Protocol</div>
+                <ol class="protocol-list">
+                    <li><strong>Encrypted Initiation:</strong> Reach out via our secure channels.</li>
+                    <li><strong>Mutual NDA:</strong> Strict non-disclosure agreement within 24 hours.</li>
+                    <li><strong>Secure Briefing:</strong> Private evaluation of your Asia mandates.</li>
+                </ol>
             </div>
             
             <div class="crypto-contact-box">
